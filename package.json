@@ -1,0 +1,27 @@
+{
+  "name": "puhelinluettelo-backend",
+  "version": "0.0.1",
+  "description": "Backend for puhelinluettelo",
+  "main": "index.js",
+  "scripts": {
+    "start" : "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vilukissa68/fullstack-2020-3.git"
+  },
+  "author": "Väinö-Waltteri Granat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vilukissa68/fullstack-2020-3/issues"
+  },
+  "homepage": "https://github.com/vilukissa68/fullstack-2020-3#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
