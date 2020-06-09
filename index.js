@@ -87,12 +87,27 @@ app.post('/api/persons', (req, res, next) => {
         id: generateId(),
     })
 
-    persons = persons.concat(person)
 
     person.save().then(savedPerson => {
         res.json(savedPerson)
+        persons = persons.concat(person)
     })
     .catch(error => next(error))
+})
+
+app.put('/api/persons/:id', (req, res, next) => {
+    const body = req.body
+
+    const person = {
+        name : body.name,
+        number : body.number,
+    }
+
+    Person.findByIdAndUpdate(req.params.id, person, { new: true})
+        .then(updatedPerson =>  {
+            res.json(updatedPerson)
+        })
+        .catch(error => next(error))
 })
 
 const unknownEndpoint = (request, response) => {
@@ -106,6 +121,10 @@ const errorHandler = (error, req, res, next) => {
 
     if (error.name === 'CastError') {
         return res.status(400).send({error: 'malformattedd id'})
+    }
+
+    if (error.name === 'ValidationError'){
+        return res.status(400).json({error: error.message})
     }
 
     next(error)

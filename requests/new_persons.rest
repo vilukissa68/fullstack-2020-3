@@ -1,7 +1,7 @@
-POST https://frozen-brushlands-15090.herokuapp.com/api/persons
+POST http://localhost:3001/api/persons
 Content-Type: application/json 
 
 {
-    "name": "Mikko Möllikas",
-    "number": "12345678900"
+    "name": "Mikko Mallikas",
+    "number": "12387654345"
 }
